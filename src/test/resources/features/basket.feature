@@ -5,8 +5,8 @@ Feature: Create an account
     Given I have entered date of birth
     And I have entered first name "Adam"
     And I have entered last name "Daoud"
-    And I have entered Email address "adam8@live.com"
-    And I have confirmed Email address "adam8@live.com"
+    And I have entered Email address "adam9@live.com"
+    And I have confirmed Email address "adam9@live.com"
     And I have entered password "Tiger121"
     And I have retyped password "Tiger121"
     And I have checked box for marketing communications

@@ -16,6 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 public class MyStepdefs {
@@ -100,7 +101,6 @@ public class MyStepdefs {
 
     @And("I have checked box for Code of Ethics")
     public void iHaveCheckedBoxForCodeOfEthics() {
-        //driver.findElement(By.cssSelector(".md-checkbox > .md-checkbox:nth-child(1) .box")).click();
         driver.findElement(By.cssSelector(".md-checkbox:nth-child(7) .box")).click();
     }
 
@@ -121,13 +121,21 @@ public class MyStepdefs {
 
     @Then("Missing last name for the application")
     public void missingLastNameForTheApplication() {
-        driver.findElement(By.id("member_lastname"));
+        WebElement lastNameField = driver.findElement(By.id("member_lastname"));
+        assertTrue("Last Name is required", lastNameField.isDisplayed());
 
     }
 
     @Then("Password miss match for the application")
     public void passwordMissMatchForTheApplication() {
-        driver.findElement(By.cssSelector("span[for='signupunlicenced_confirmpassword']")).getText();
+        // Hitta felmeddelandet för mismatch av lösenord
+        String actualErrorMessage = driver.findElement(By.cssSelector("span[for='signupunlicenced_confirmpassword']")).getText();
+
+        // Förväntat felmeddelande
+        String expectedErrorMessage = "Password did not match";
+
+        // Kontrollera att felmeddelandet är korrekt
+        assertEquals(expectedErrorMessage, actualErrorMessage, "Password did not match");
 
     }
 
@@ -136,11 +144,15 @@ public class MyStepdefs {
         WebElement checkbox = driver.findElement(By.id("sign_up_25"));
         boolean isChecked = checkbox.isSelected();
         assertEquals("Terms and Conditions checkbox should NOT be checked", false, isChecked);
+        //Det här är ett testpåstående (assertion) som säger: “Vi förväntar oss att kryssrutan inte är ikryssad.”
+
+        //  Om isChecked råkar vara true (alltså att rutan är ikryssad), kommer testet att misslyckas och
+        // felmeddelandet "Terms and Conditions checkbox should NOT be checked" visas.
     }
 
     @Given("User is using {string} as a webb browser")
     public void userIsUsingAsAWebbBrowser(String browser) {
-        if (browser.equals("Edge")) ;
+        if (browser.equals("Edge"));
         {
             driver = new EdgeDriver();
             driver.manage().window().maximize();
