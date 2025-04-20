@@ -116,7 +116,6 @@ public class MyStepdefs {
         String actual = driver.findElement(By.cssSelector("h2[class='bold  gray  text-center  margin-bottom-40']")).getText();
         String expected = "THANK YOU FOR CREATING AN ACCOUNT WITH BASKETBALL ENGLAND";
         assertEquals(expected, actual);
-        // Ändra på email adress för godkänt testfall.
     }
 
     @Then("Missing last name for the application")
@@ -128,13 +127,9 @@ public class MyStepdefs {
 
     @Then("Password miss match for the application")
     public void passwordMissMatchForTheApplication() {
-        // Hitta felmeddelandet för mismatch av lösenord
         String actualErrorMessage = driver.findElement(By.cssSelector("span[for='signupunlicenced_confirmpassword']")).getText();
-
-        // Förväntat felmeddelande
         String expectedErrorMessage = "Password did not match";
 
-        // Kontrollera att felmeddelandet är korrekt
         assertEquals(expectedErrorMessage, actualErrorMessage, "Password did not match");
 
     }
@@ -144,10 +139,7 @@ public class MyStepdefs {
         WebElement checkbox = driver.findElement(By.id("sign_up_25"));
         boolean isChecked = checkbox.isSelected();
         assertEquals("Terms and Conditions checkbox should NOT be checked", false, isChecked);
-        //Det här är ett testpåstående (assertion) som säger: “Vi förväntar oss att kryssrutan inte är ikryssad.”
 
-        //  Om isChecked råkar vara true (alltså att rutan är ikryssad), kommer testet att misslyckas och
-        // felmeddelandet "Terms and Conditions checkbox should NOT be checked" visas.
     }
 
     @Given("User is using {string} as a webb browser")
