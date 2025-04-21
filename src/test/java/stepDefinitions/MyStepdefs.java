@@ -120,8 +120,8 @@ public class MyStepdefs {
 
     @Then("Missing last name for the application")
     public void missingLastNameForTheApplication() {
-        WebElement lastNameField = driver.findElement(By.id("member_lastname"));
-        assertTrue("Last Name is required", lastNameField.isDisplayed());
+        WebElement lastName = driver.findElement(By.id("member_lastname"));
+        assertTrue("Last Name is required", lastName.isDisplayed());
 
     }
 
@@ -138,7 +138,8 @@ public class MyStepdefs {
     public void theBoxForTermsAndConditionsIsNotChecked() {
         WebElement checkbox = driver.findElement(By.id("sign_up_25"));
         boolean isChecked = checkbox.isSelected();
-        assertEquals("Terms and Conditions checkbox should NOT be checked", false, isChecked);
+        assertEquals("Terms and Conditions checkbox should NOT be checked. " + 
+                "Actual:You must confirm that you have read and accepted our Terms and Conditions", false, isChecked);
 
     }
 
