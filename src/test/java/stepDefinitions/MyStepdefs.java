@@ -90,13 +90,13 @@ public class MyStepdefs {
 
     @And("I have checked box for Terms and Conditions")
     public void iHaveCheckedBoxForTermsAndConditions() {
-        driver.findElement(By.cssSelector("label[for='sign_up_25'] > .box")).click();
+        driver.findElement(By.cssSelector("label[for='sign_up_25'] .box")).click();
 
     }
 
     @And("I have checked the box for age over {int}")
     public void iHaveCheckedTheBoxForAgeOver(int arg0) {
-        driver.findElement(By.cssSelector("label[for='sign_up_26'] > .box")).click();
+        driver.findElement(By.cssSelector("label[for='sign_up_26'] .box")).click();
     }
 
     @And("I have checked box for Code of Ethics")

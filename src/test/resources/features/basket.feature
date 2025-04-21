@@ -5,8 +5,8 @@ Feature: Create an account
     Given I have entered date of birth
     And I have entered first name "Adam"
     And I have entered last name "Daoud"
-    And I have entered Email address "adam9@live.com"
-    And I have confirmed Email address "adam9@live.com"
+    And I have entered Email address "adam11@live.com"
+    And I have confirmed Email address "adam11@live.com"
     And I have entered password "Tiger121"
     And I have retyped password "Tiger121"
     And I have checked box for marketing communications
@@ -16,7 +16,7 @@ Feature: Create an account
     When I press for confirm and join
     Then The application is successful
 
-    Scenario: Last name missing
+  Scenario: Last name missing
       Given User is using "Edge" as a webb browser
       Given I have entered date of birth
       And I have entered first name "Emil"
