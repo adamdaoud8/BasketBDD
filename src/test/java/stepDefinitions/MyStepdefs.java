@@ -145,12 +145,12 @@ public class MyStepdefs {
 
     @Given("User is using {string} as a webb browser")
     public void userIsUsingAsAWebbBrowser(String browser) {
-        if (browser.equals("Edge"));
+        if (browser.equals("Edge"))
         {
             driver = new EdgeDriver();
             driver.manage().window().maximize();
         }
-        if (browser.equals("Chrome")) {
+        else {
             driver = new ChromeDriver();
             driver.manage().window().maximize();
         }
